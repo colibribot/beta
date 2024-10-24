@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Circuit - Home</title>
-    <link rel="icon" type="image/x-icon" href="./img/circuit.png">
+    <link rel="icon" type="image/x-icon" href="/beta/assets/img/circuit.png">
     <link rel="stylesheet" href="/beta/assets/styles/circuit.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,7 +12,6 @@
 </head>
 <body>
     
-    <header class="hero-section">
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-logo">
@@ -49,64 +48,110 @@
                             
         </div>
     </nav>
-        
+    
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="hero-content">
-            <h1>Welcome to Circuit Dashboard</h1>
-            <h3>Effortlessly manage your Discord server with powerful and intuitive tools.</h3>
-            <a href="dashboard.html" class="btn btn-primary">Get Started</a>
+            <h1>Supercharge Your Discord Server with <span>BotName</span></h1>
+            <p>Manage, moderate, and engage your community with powerful features and 24/7 uptime.</p>
+            <div class="hero-buttons">
+                <a href="#" class="cta-btn">Invite Bot Now</a>
+                <a href="#features" class="cta-secondary-btn">Learn More</a>
+            </div>
         </div>
-    </header>
-
-    <section class="about" id="about">
-        <div class="container">
-            <h2>About Circuit</h2>
-            <p>Circuit is designed to help you manage your Discord server with ease. With powerful tools and a user-friendly interface, Circuit simplifies server management, allowing you to focus on building a great community.</p>
+        <div class="hero-image">
+            <img src="hero-image.png" alt="Bot Illustration">
         </div>
     </section>
 
-<section class="features-section">
-  <!-- First Feature (Image on the right, text on the left) -->
-  <div class="feature-item">
-    <div class="feature-content">
-      <h2 class="feature-title">Advanced Moderation</h2>
-      <p class="feature-description">Keep your Discord server safe and sound with cutting-edge moderation tools designed to identify, log, and prevent toxic behavior in real-time.</p>
-      <a href="#" class="feature-link">Learn more</a>
-    </div>
-    <div class="feature-image">
-      <img src="./img/circuit.png" alt="Moderation">
-    </div>
-  </div>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>Powerful Features for Seamless Server Management</h2>
+        <div class="feature-cards">
+            <div class="card">
+                <img src="icons/uptime.svg" alt="24/7 Uptime">
+                <h3>24/7 Uptime</h3>
+                <p>Our bot is always online to ensure your server runs smoothly around the clock.</p>
+            </div>
+            <div class="card">
+                <img src="icons/moderation.svg" alt="Moderation">
+                <h3>Advanced Moderation</h3>
+                <p>Keep your community safe with powerful moderation tools.</p>
+            </div>
+            <div class="card">
+                <img src="icons/custom.svg" alt="Custom Commands">
+                <h3>Custom Commands</h3>
+                <p>Build unique commands that suit your community’s needs.</p>
+            </div>
+            <div class="card">
+                <img src="icons/music.svg" alt="Music Streaming">
+                <h3>Music Streaming</h3>
+                <p>Play high-quality music in your voice channels with ease.</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Second Feature (Image on the left, text on the right) -->
-  <div class="feature-item reverse">
-          <div class="feature-content">
-      <h2 class="feature-title">Seamless Music Integration</h2>
-      <p class="feature-description">Enjoy high-quality music streaming directly within your server. With seamless integration, users can queue up tracks from Spotify, YouTube, and more!</p>
-      <a href="#" class="feature-link">Start listening</a>
-    </div>
-    <div class="feature-image">
-          <img src="./img/circuit.png" alt="Music Integration">
-    </div>
-  </div>
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <span class="step-number">1</span>
+                <h3>Invite the Bot</h3>
+                <p>Click the "Invite" button and choose the server where you want to install the bot.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <h3>Set Up Permissions</h3>
+                <p>Configure the bot's permissions and assign it the necessary roles.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <h3>Use Commands</h3>
+                <p>Start using the bot’s commands to manage your server effortlessly.</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Third Feature (Image on the right, text on the left) -->
-  <div class="feature-item">
-    <div class="feature-content">
-      <h2 class="feature-title">Custom Commands</h2>
-      <p class="feature-description">Empower your community by creating custom commands that cater to your server's unique needs. No coding required!</p>
-      <a href="#" class="feature-link">Customize now</a>
-    </div>
-    <div class="feature-image">
-      <img src="./img/circuit.png" alt="Custom Commands">
-    </div>
-  </div>
-</section>
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2>What Users Are Saying</h2>
+        <div class="testimonials-content">
+            <div class="testimonial">
+                <p>“BotName completely transformed how we manage our Discord server. The moderation features are a lifesaver!”</p>
+                <h4>– Server Owner</h4>
+            </div>
+            <div class="testimonial">
+                <p>“The custom commands make our community stand out. We love how easy it is to set everything up!”</p>
+                <h4>– Community Leader</h4>
+            </div>
+        </div>
+    </section>
 
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to enhance your Discord server?</h2>
-            <p>Join thousands of satisfied users and improve your server management with Circuit</p>
-            <a href="invite.html" class="btn btn-primary">Get Started</a>
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <h2>Affordable Pricing Plans</h2>
+        <div class="pricing-plans">
+            <div class="plan">
+                <h3>Free</h3>
+                <p>$0/month</p>
+                <ul>
+                    <li>Basic Commands</li>
+                    <li>Moderation Tools</li>
+                    <li>24/7 Uptime</li>
+                </ul>
+                <a href="#" class="cta-btn">Get Started</a>
+            </div>
+            <div class="plan">
+                <h3>Pro</h3>
+                <p>$5/month</p>
+                <ul>
+                    <li>All Free Features</li>
+                    <li>Custom Commands</li>
+                    <li>Priority Support</li>
+                </ul>
+                <a href="#" class="cta-btn">Upgrade</a>
+            </div>
         </div>
     </section>
 
