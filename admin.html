@@ -2,7 +2,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Admin Panel</title>
-    <script src="/beta/assets/scripts/scripts.js"></script><style>
+    
+    <!-- Load Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-jQ4XgUApZ+d6c/92p/EUpB1J8kVTXbxTwSAfYrQ9KpI/xdQbTnlTQ6HxHXD8FGF8SYxqyyB1rkGzNlgXfQfiZw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -163,78 +167,85 @@
             font-size: 14px;
             color: #888;
         }
-    .profile {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
+        
+        .profile {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
 
-.profile-trigger {
-    position: relative;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding-left: 30px; /* Extend the trigger area to the left */
-}
+        .profile-trigger {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
 
-.profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-left: -10px; /* Move the profile picture more to the left */
-}
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 40px;
-    right: 0;
-    background-color: #343a40;
-    color: #ffffff;
-    min-width: 125px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 4px;
-    overflow: hidden;
-}
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background-color: #343a40;
+            color: #ffffff;
+            min-width: 125px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 4px;
+            overflow: hidden;
+        }
 
-.dropdown-content p, .dropdown-content a {
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-size: 14px;
-    color: #ffffff; /* Ensure dropdown links are white */
-}
+        .dropdown-content p, 
+        .dropdown-content a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            color: #ffffff;
+        }
 
-.dropdown-content a:hover {
-    background-color: #575757;
-}
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
 
-/* Hamburger Menu Styles */
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container.flex {
+                flex-direction: column;
+                align-items: center;
+            }
 
+            .cards {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
 
-@media (max-width: 768px) {
-    .header-container.flex {
-        flex-direction: column;
-        align-items: center;
-    }
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
 
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
 
+            .profile-pic {
+                margin-left: 5px;
+            }
 
-    .btn-primary {
-        margin-top: 20px; /* Adjust top margin of login button */
-    }
-
-
-
-    .profile-trigger {
-        padding-left: 10px; /* Adjust profile trigger padding */
-    }
-
-    .dropdown-content {
-        top: 70px; /* Increase the distance from top for dropdown content */
-    }
-}</style>
+            .dropdown-content {
+                top: 60px;
+                right: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -257,11 +268,13 @@
 
     <!-- Main Content -->
     <div class="main-content">
+        <div class="topbar">
+            <h2>Admin Dashboard</h2>
             <div class="profile">
                 <div class="profile-trigger">
-                    <img id="profile-pic" src="" alt="Profile Picture" class="profile-pic" style="display: block;">
+                    <img id="profile-pic" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile Picture" class="profile-pic">
                 </div>
-                <div id="dropdown-content" class="dropdown-content" style="display: none;">
+                <div id="dropdown-content" class="dropdown-content">
                     <p id="profile-name">alex1061</p>
                     <a href="dashboard.html">Dashboard</a>
                     <a href="premium.html">Premium</a>
@@ -282,12 +295,12 @@
                 <p>37</p>
             </div>
             <div class="card">
-                <h3>Bot latency</h3>
+                <h3>Bot Latency</h3>
                 <p>27ms</p>
             </div>
             <div class="card">
                 <h3>Uptime</h3>
-                <p> 0d 4h 31m 12s</p>
+                <p>0d 4h 31m 12s</p>
             </div>
             <div class="card">
                 <h3>Clusters</h3>
@@ -297,18 +310,28 @@
                 <h3>Shards</h3>
                 <p>24 Shards</p>
             </div>
-        <div class="card">
-                <h3>Database connection</h3>
+            <div class="card">
+                <h3>Database Connection</h3>
                 <p>Connected</p>
-            </div><div class="card">
+            </div>
+            <div class="card">
                 <h3>Version</h3>
                 <p>1.5.5</p>
-            </div></div>
+            </div>
+        </div>
 
         <!-- Latency Section -->
         
+
     </div>
-    
+
+    <!-- JavaScript -->
+    <script>
+        document.querySelector('.profile-trigger').addEventListener('click', function() {
+            const dropdown = document.getElementById('dropdown-content');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+    </script>
 
 
 </body></html>
