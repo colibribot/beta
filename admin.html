@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Admin Panel</title>
-    
+    <script src="/beta/assets/scripts/scripts.js" defer=""></script>
     <!-- Load Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-jQ4XgUApZ+d6c/92p/EUpB1J8kVTXbxTwSAfYrQ9KpI/xdQbTnlTQ6HxHXD8FGF8SYxqyyB1rkGzNlgXfQfiZw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     
@@ -268,21 +268,22 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <div class="topbar">
+<div class="topbar">
             <h2>Admin Dashboard</h2>
             <div class="profile">
                 <div class="profile-trigger">
                     <img id="profile-pic" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile Picture" class="profile-pic">
                 </div>
-                <div id="dropdown-content" class="dropdown-content">
+                <div id="dropdown-content" class="dropdown-content" style="display: none;">
                     <p id="profile-name">alex1061</p>
                     <a href="dashboard.html">Dashboard</a>
-                    <a href="premium.html">Premium</a>
+                    <a href="index.html">Home</a>
                     <a href="#" id="logout-btn">Log Out</a>
                     <a href="#" id="theme-toggle">Dark/Light mode</a>
                 </div>
             </div>
-        </div>
+                                        <button id="login-btn" class="btn btn-primary" style="display:none;">Login</button>
+</div>
 
         <!-- Cards Section -->
         <div class="cards">
@@ -324,14 +325,6 @@
         
 
     </div>
-
-    <!-- JavaScript -->
-    <script>
-        document.querySelector('.profile-trigger').addEventListener('click', function() {
-            const dropdown = document.getElementById('dropdown-content');
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-        });
-    </script>
 
 
 </body></html>
