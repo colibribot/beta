@@ -356,30 +356,34 @@
                 </tbody>
             </table>
         </div>
-
     </div>
 
-    <!-- JavaScript to highlight active link -->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Get the current URL path
-        const currentPage = window.location.pathname;
-        console.log('Current page:', currentPage); // Debugging line
+    <!-- JavaScript to highlight active link and check authentication -->
+    <script>
+        // Simulate user authentication
+        const currentUserId = 'YOUR_USER_ID'; // Replace with your actual user ID
+        const loggedInUserId = localStorage.getItem('loggedInUserId'); // Simulating user session from local storage
 
-        // Map links to their corresponding pages
-        const navLinks = document.querySelectorAll('.nav-link');
+        // Check if the user is logged in and has the correct user ID
+        if (loggedInUserId !== currentUserId) {
+            // Redirect to the login page if not logged in or if the user ID doesn't match
+            window.location.href = '/beta/index.html'; // Adjust the path to your login page
+        }
 
-        navLinks.forEach(link => {
-            // Log the link href for debugging
-            console.log('Link href:', link.getAttribute('href')); 
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get the current URL path
+            const currentPage = window.location.pathname;
 
-            // Use full path comparison
-            if (link.getAttribute('href') === currentPage) {
-                link.classList.add('active');
-            }
+            // Map links to their corresponding pages
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
 </html>
