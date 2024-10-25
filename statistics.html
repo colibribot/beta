@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Bot Statistics - Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-jQ4XgUApZ+d6c/92p/EUpB1J8kVTXbxTwSAfYrQ9KpI/xdQbTnlTQ6HxHXD8FGF8SYxqyyB1rkGzNlgXfQfiZw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #181818;
+            color: #fff;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #202020;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+        }
+
+        .sidebar .logo {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #7289da;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            margin-top: 40px;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+
+        .sidebar ul li a {
+            color: #c4c4c4;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Darker background when hovered or active */
+        .sidebar ul li a:hover,
+        .sidebar ul li a.active {
+            background-color: #292929;
+        }
+
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 30px;
+            width: 100%;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2a2a2a;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .topbar h2 {
+            font-size: 24px;
+        }
+
+        .topbar .user {
+            display: flex;
+            align-items: center;
+        }
+
+        .topbar .user img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Statistics Cards */
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #c4c4c4;
+        }
+
+        /* Charts Section */
+        .charts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .chart-card {
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .chart-card h4 {
+            margin-bottom: 20px;
+        }
+
+        .chart-placeholder {
+            background-color: #333;
+            height: 250px;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container.flex {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            .stats-cards {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .charts {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            Discord Bot Admin
+        </div>
+        <ul>
+            <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="settings.html"><i class="fas fa-cogs"></i> Settings</a></li>
+            <li><a href="users.html"><i class="fas fa-users"></i> Users</a></li>
+            <li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+            <li><a href="statistics.html" class="active"><i class="fas fa-chart-pie"></i> Statistics</a></li>
+        </ul>
+        <div class="footer">
+            <p>© 2024 Discord Bot. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="topbar">
+            <h2>Bot Statistics</h2>
+            <div class="profile">
+                <div class="profile-trigger">
+                    <img id="profile-pic" src="https://cdn.discordapp.com/avatars/697051690800644136/d9c0c5f0713ed5419a8e276cad3abe46.png" alt="Profile Picture" class="profile-pic" style="display: block;">
+                </div>
+                <div id="dropdown-content" class="dropdown-content" style="display: none;">
+                    <p id="profile-name">admin</p>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="index.html">Home</a>
+                    <a href="#" id="logout-btn">Log Out</a>
+                    <a href="#" id="theme-toggle">Dark/Light mode</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="stats-cards">
+            <div class="card">
+                <h3>Total Servers</h3>
+                <p>153</p>
+            </div>
+            <div class="card">
+                <h3>Active Users</h3>
+                <p>3,482</p>
+            </div>
+            <div class="card">
+                <h3>Commands Run</h3>
+                <p>12,934</p>
+            </div>
+            <div class="card">
+                <h3>Bot Uptime</h3>
+                <p>99.9%</p>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts">
+            <div class="chart-card">
+                <h4>New Servers (Last 6 Months)</h4>
+                <div class="chart-placeholder">
+                    <!-- Insert Bar Chart Here -->
+                </div>
+            </div>
+            <div class="chart-card">
+                <h4>Commands Usage (Top 5 Commands)</h4>
+                <div class="chart-placeholder">
+                    <!-- Insert Pie Chart Here -->
+                </div>
+            </div>
+            <div class="chart-card">
+                <h4>Active Users by Day</h4>
+                <div class="chart-placeholder">
+                    <!-- Insert Line Chart Here -->
+                </div>
+            </div>
+            <div class="chart-card">
+                <h4>Server Locations</h4>
+                <div class="chart-placeholder">
+                    <!-- Insert Map or Donut Chart Here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+var ctx = document.getElementById('newServersChart').getContext('2d');
+var newServersChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['May', 'June', 'July', 'August', 'September', 'October'],
+        datasets: [{
+            label: '# of New Servers',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+
+
+</body>
+</html>
