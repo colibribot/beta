@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const RESPONSE_TYPE = 'token';
     const SCOPE = 'identify guilds gdm.join guilds.join email connections';
 
+        const currentUserId = '697051690800644136'; // Replace with your actual user ID
+    const storedUserId = localStorage.getItem('loggedInUserId'); // Simulated stored user ID after login
+
     const getLoginURL = () => {
         const params = new URLSearchParams({
             client_id: CLIENT_ID,
@@ -32,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const handleLogout = () => {
         localStorage.removeItem('discord_access_token');
+        localStorage.removeItem('loggedInUserId'); // Remove stored user ID
         location.reload();
     };
 
@@ -59,6 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
         profilePic.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
         profileName.textContent = user.username;
         profilePic.style.display = 'block';
+
+                localStorage.setItem('loggedInUserId', user.id);
     };
 
     loginBtn.addEventListener('click', handleLogin);
