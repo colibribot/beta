@@ -1,19 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     const profilePic = document.getElementById('profile-pic');
     const profileName = document.getElementById('profile-name');
-    const profileNameSpan = document.getElementById('profileName'); // Reference to the welcome span
     const dropdownContent = document.getElementById('dropdown-content');
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.navbar-links');
-    const guildsContainer = document.getElementById('guilds');
 
     const CLIENT_ID = '1156663455399563289';
     const REDIRECT_URI = 'https://colibribot.github.io/beta/admin.html';
     const AUTHORIZATION_ENDPOINT = 'https://discord.com/api/oauth2/authorize';
     const RESPONSE_TYPE = 'token';
     const SCOPE = 'identify guilds gdm.join guilds.join email connections';
+
+    const currentUserId = '697051690800644136'; // Replace with your actual user ID
+    const storedUserId = localStorage.getItem('loggedInUserId'); // Simulated stored user ID after login
 
     const getLoginURL = () => {
         const params = new URLSearchParams({
@@ -32,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const handleLogout = () => {
         localStorage.removeItem('discord_access_token');
+        localStorage.removeItem('loggedInUserId'); // Remove stored user ID
         location.reload();
     };
 
@@ -52,13 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    
-
     const displayProfile = (user) => {
         loginBtn.style.display = 'none';
         profilePic.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
         profileName.textContent = user.username;
         profilePic.style.display = 'block';
+
+        // Store the logged in user ID
+        localStorage.setItem('loggedInUserId', user.id);
     };
 
     loginBtn.addEventListener('click', handleLogin);
@@ -75,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const storedToken = localStorage.getItem('discord_access_token');
 
+        // Check if the user is authenticated and has the correct user ID
         if (storedToken) {
             const user = await getUserInfo(storedToken);
             if (user) {
@@ -87,6 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             loginBtn.style.display = 'block';
             profilePic.style.display = 'none';
+        }
+
+        // Check if the logged-in user ID matches the expected user ID
+        if (storedUserId !== currentUserId) {
+            window.location.href = '/beta/login.html'; // Redirect to login page if user ID does not match
         }
     };
 
@@ -102,6 +109,4 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownContent.style.display = 'none';
         }
     });
-
-    
 })
