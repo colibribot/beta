@@ -1,18 +1,22 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Admin Panel</title>
     <script src="/beta/assets/scripts/scripts.js" defer=""></script>
     <!-- Load Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-jQ4XgUApZ+d6c/92p/EUpB1J8kVTXbxTwSAfYrQ9KpI/xdQbTnlTQ6HxHXD8FGF8SYxqyyB1rkGzNlgXfQfiZw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    
+
     <style>
+        /* General Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
         body {
             display: flex;
             min-height: 100vh;
@@ -31,23 +35,23 @@
             justify-content: space-between;
             position: fixed;
         }
-        
+
         .sidebar .logo {
             text-align: center;
             font-size: 24px;
             font-weight: bold;
             color: #1a73e8;
         }
-        
+
         .sidebar ul {
             list-style: none;
             margin-top: 40px;
         }
-        
+
         .sidebar ul li {
             margin: 20px 0;
         }
-        
+
         .sidebar ul li a {
             color: #c4c4c4;
             text-decoration: none;
@@ -55,8 +59,9 @@
             display: flex;
             align-items: center;
         }
-        
-        .sidebar ul li a:hover {
+
+        .sidebar ul li a:hover,
+        .sidebar ul li a.active {
             color: #1a73e8;
         }
 
@@ -64,13 +69,13 @@
             margin-right: 10px;
         }
 
-        /* Main content */
+        /* Main Content */
         .main-content {
             margin-left: 250px;
             padding: 30px;
             width: 100%;
         }
-        
+
         .topbar {
             display: flex;
             justify-content: space-between;
@@ -80,11 +85,11 @@
             border-radius: 10px;
             margin-bottom: 30px;
         }
-        
+
         .topbar h2 {
             font-size: 24px;
         }
-        
+
         .topbar .user {
             display: flex;
             align-items: center;
@@ -103,7 +108,7 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
-        
+
         .card {
             background-color: #2a2a2a;
             padding: 20px;
@@ -111,12 +116,12 @@
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
-        
+
         .card h3 {
             margin-bottom: 10px;
             font-size: 20px;
         }
-        
+
         .card p {
             font-size: 16px;
             color: #c4c4c4;
@@ -140,7 +145,7 @@
             border-collapse: collapse;
         }
 
-        .latency-table th, 
+        .latency-table th,
         .latency-table td {
             padding: 15px;
             text-align: left;
@@ -167,7 +172,7 @@
             font-size: 14px;
             color: #888;
         }
-        
+
         .profile {
             position: relative;
             display: flex;
@@ -201,7 +206,7 @@
             overflow: hidden;
         }
 
-        .dropdown-content p, 
+        .dropdown-content p,
         .dropdown-content a {
             padding: 12px 16px;
             text-decoration: none;
@@ -247,19 +252,18 @@
         }
     </style>
 </head>
-<body>
 
+<body>
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="logo">
             Admin Panel
         </div>
         <ul>
-            <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Users</a></li>
-            <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
-            <li><a href="#"><i class="fas fa-life-ring"></i> Support</a></li>
+            <li><a href="admin.html" class="nav-link" id="dashboard-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="settings.html" class="nav-link" id="settings-link"><i class="fas fa-cogs"></i> Settings</a></li>
+            <li><a href="users.html" class="nav-link" id="users-link"><i class="fas fa-users"></i> Users</a></li>
+            <li><a href="analytics.html" class="nav-link" id="analytics-link"><i class="fas fa-chart-line"></i> Analytics</a></li>
         </ul>
         <div class="footer">
             <p>© 2024 Circuit. All Rights Reserved.</p>
@@ -268,11 +272,11 @@
 
     <!-- Main Content -->
     <div class="main-content">
-<div class="topbar">
+        <div class="topbar">
             <h2>Admin Dashboard</h2>
             <div class="profile">
                 <div class="profile-trigger">
-                    <img id="profile-pic" src="/beta/assets/img/pfp.png" alt="Profile Picture" class="profile-pic">
+                    <img id="profile-pic" src="https://cdn.discordapp.com/avatars/697051690800644136/d9c0c5f0713ed5419a8e276cad3abe46.png" alt="Profile Picture" class="profile-pic" style="display: block;">
                 </div>
                 <div id="dropdown-content" class="dropdown-content" style="display: none;">
                     <p id="profile-name">alex1061</p>
@@ -282,8 +286,8 @@
                     <a href="#" id="theme-toggle">Dark/Light mode</a>
                 </div>
             </div>
-                                        <button id="login-btn" class="btn btn-primary" style="display:none;">Login</button>
-</div>
+            <button id="login-btn" class="btn btn-primary" style="display:none;">Login</button>
+        </div>
 
         <!-- Cards Section -->
         <div class="cards">
@@ -342,9 +346,23 @@
                     </tr>
                 </tbody>
             </table>
-        </div>        
+        </div>
 
     </div>
 
+    <!-- JavaScript to highlight active link -->
+    <script>
+        // Get the current URL path
+        const currentPage = window.location.pathname;
 
-</body></html>
+        // Map links to their corresponding pages
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
