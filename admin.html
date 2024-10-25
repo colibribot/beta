@@ -58,11 +58,20 @@
             font-size: 16px;
             display: flex;
             align-items: center;
+            padding: 10px; /* Added padding for better spacing */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth background transition */
         }
 
-        .sidebar ul li a:hover,
+        .sidebar ul li a:hover {
+            color: #1a73e8; /* Hover color */
+            background-color: rgba(26, 115, 232, 0.1); /* Slightly highlighted on hover */
+        }
+
         .sidebar ul li a.active {
-            color: #1a73e8;
+            color: #fff; /* Change this to a lighter color if necessary */
+            background-color: #1a73e8; /* Darker background color for active link */
+            border-radius: 5px; /* Optional: Add some rounding to the corners */
         }
 
         .sidebar ul li a i {
@@ -279,7 +288,7 @@
                     <img id="profile-pic" src="https://cdn.discordapp.com/avatars/697051690800644136/d9c0c5f0713ed5419a8e276cad3abe46.png" alt="Profile Picture" class="profile-pic" style="display: block;">
                 </div>
                 <div id="dropdown-content" class="dropdown-content" style="display: none;">
-                    <p id="profile-name">alex1061</p>
+                    <p id="profile-name"></p>
                     <a href="dashboard.html">Dashboard</a>
                     <a href="index.html">Home</a>
                     <a href="#" id="logout-btn">Log Out</a>
