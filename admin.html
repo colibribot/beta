@@ -360,18 +360,26 @@
     </div>
 
     <!-- JavaScript to highlight active link -->
-    <script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
         // Get the current URL path
         const currentPage = window.location.pathname;
+        console.log('Current page:', currentPage); // Debugging line
 
         // Map links to their corresponding pages
         const navLinks = document.querySelectorAll('.nav-link');
 
         navLinks.forEach(link => {
+            // Log the link href for debugging
+            console.log('Link href:', link.getAttribute('href')); 
+
+            // Use full path comparison
             if (link.getAttribute('href') === currentPage) {
-                link.classList.add(' active');
+                link.classList.add('active');
             }
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
