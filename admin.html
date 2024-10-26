@@ -63,16 +63,12 @@
             transition: background-color 0.3s; /* Smooth background transition */
         }
 
-        .sidebar ul li a:hover {
-            color: #1a73e8; /* Hover color */
-            background-color: rgba(26, 115, 232, 0.1); /* Slightly highlighted on hover */
+        /* Active and hover effects for the sidebar */
+        .sidebar ul li a:hover,
+        .sidebar ul li a.active {
+            background-color: #292929;
         }
 
-        .sidebar ul li a.active {
-            color: #fff; /* Change this to a lighter color if necessary */
-            background-color: #1a73e8; /* Darker background color for active link */
-            border-radius: 5px; /* Optional: Add some rounding to the corners */
-        }
 
         .sidebar ul li a i {
             margin-right: 10px;
@@ -264,18 +260,18 @@
 
 <body>
     <!-- Sidebar -->
-    <div class="sidebar">
+<div class="sidebar">
         <div class="logo">
-            Admin Panel
+            Discord Bot Admin
         </div>
         <ul>
-            <li><a href="/beta/admin.html" class="nav-link" id="dashboard-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-            <li><a href="/beta/settings.html" class="nav-link" id="settings-link"><i class="fas fa-cogs"></i> Settings</a></li>
-            <li><a href="/beta/users.html" class="nav-link" id="users-link"><i class="fas fa-users"></i> Users</a></li>
-            <li><a href="/beta/analytics.html" class="nav-link" id="analytics-link"><i class="fas fa-chart-line"></i> Analytics</a></li>
+            <li><a href="/beta/admin.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="/beta/settings.html"><i class="fas fa-cogs"></i> Settings</a></li>
+            <li><a href="/beta/users.html"><i class="fas fa-users"></i> Users</a></li>
+            <li><a href="/beta/analytics.html" class="active"><i class="fas fa-chart-line"></i> Analytics</a></li>
         </ul>
         <div class="footer">
-            <p>© 2024 Circuit. All Rights Reserved.</p>
+            <p>© 2024 Discord Bot. All Rights Reserved.</p>
         </div>
     </div>
 
