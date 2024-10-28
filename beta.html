@@ -9,17 +9,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <style>
-    /* Reset */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    color: #333;
+    background-color: #121212;
+    color: #f0f0f0;
     line-height: 1.6;
 }
 
@@ -28,36 +28,51 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #1a73e8;
-    color: #fff;
+    background: linear-gradient(135deg, #1a73e8, #ff6347);
     height: 100vh;
+    color: #fff;
     text-align: center;
+    padding: 20px;
 }
 
 .hero-content {
-    max-width: 600px;
+    max-width: 700px;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .cta-button {
     display: inline-block;
     margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #ff6347;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background: linear-gradient(135deg, #ff6347, #ff4500);
     color: #fff;
-    border-radius: 5px;
+    border: none;
+    border-radius: 30px;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .cta-button:hover {
-    background-color: #ff4500;
+    transform: scale(1.05);
 }
 
 /* Features Section */
 .features {
     padding: 50px 20px;
-    background-color: #f9f9f9;
+    background-color: #181818;
     text-align: center;
+}
+
+.features h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #ff6347;
 }
 
 .feature-cards {
@@ -70,69 +85,34 @@ body {
 .feature-card {
     width: 300px;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
 }
 
 .feature-card i {
-    font-size: 24px;
-    color: #1a73e8;
+    font-size: 40px;
+    color: #ff6347;
+    margin-bottom: 10px;
 }
 
-/* How It Works Section */
-.how-it-works {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.steps {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.step {
-    width: 300px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.step i {
-    font-size: 24px;
-    color: #1a73e8;
-}
-
-/* Testimonials Section */
-.testimonials {
-    padding: 50px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.testimonial-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.testimonial-card {
-    width: 300px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.gradient-icon {
+    background: linear-gradient(135deg, #1a73e8, #ff6347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Footer Section */
 .footer {
     padding: 20px;
-    background-color: #1a1a1a;
-    color: #fff;
+    background-color: #111;
+    color: #888;
     text-align: center;
 }
 
@@ -142,7 +122,7 @@ body {
 
 .footer-links a {
     color: #ff6347;
-    margin: 0 10px;
+    margin: 0 15px;
     text-decoration: none;
 }
 
@@ -153,8 +133,8 @@ body {
 .social-links a {
     color: #ff6347;
     margin: 0 10px;
-    font-size: 18px;
-    text-decoration: none;
+    font-size: 1.5em;
+    transition: color 0.3s;
 }
 
 .social-links a:hover {
@@ -168,8 +148,8 @@ body {
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Welcome to Your Service</h1>
-            <p>Effortlessly manage your support with our intuitive, powerful tools designed to streamline your service and support.</p>
+            <h1>Streamline Your Support</h1>
+            <p>Effortlessly manage and resolve issues with our advanced, intuitive support system.</p>
             <a href="#features" class="cta-button">Get Started for Free</a>
         </div>
     </section>
@@ -179,56 +159,19 @@ body {
         <h2>Features</h2>
         <div class="feature-cards">
             <div class="feature-card">
-                <i class="fas fa-ticket-alt"></i>
-                <h3>Easy Ticket Management</h3>
-                <p>Streamline support with easy-to-manage tickets and prioritize what matters most to your users.</p>
+                <i class="fas fa-ticket-alt gradient-icon"></i>
+                <h3>Ticketing System</h3>
+                <p>Organize and track issues with ease using our streamlined ticketing system.</p>
             </div>
             <div class="feature-card">
-                <i class="fas fa-chart-line"></i>
-                <h3>Analytics & Reporting</h3>
-                <p>Gain insights into your support performance and make informed decisions.</p>
+                <i class="fas fa-chart-line gradient-icon"></i>
+                <h3>Insights & Analytics</h3>
+                <p>Analyze your support data to make better decisions for your business.</p>
             </div>
             <div class="feature-card">
-                <i class="fas fa-headset"></i>
+                <i class="fas fa-headset gradient-icon"></i>
                 <h3>24/7 Support</h3>
-                <p>We’re here for you around the clock to ensure smooth operations and customer satisfaction.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section class="how-it-works">
-        <h2>How It Works</h2>
-        <div class="steps">
-            <div class="step">
-                <i class="fas fa-sign-in-alt"></i>
-                <h3>1. Sign Up</h3>
-                <p>Quickly sign up to get started with our service, no technical skills required.</p>
-            </div>
-            <div class="step">
-                <i class="fas fa-sliders-h"></i>
-                <h3>2. Customize</h3>
-                <p>Configure your settings to match your support workflow for optimal results.</p>
-            </div>
-            <div class="step">
-                <i class="fas fa-tasks"></i>
-                <h3>3. Manage Tickets</h3>
-                <p>Start managing and resolving tickets effortlessly with our user-friendly platform.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section (Optional) -->
-    <section class="testimonials">
-        <h2>What Our Users Say</h2>
-        <div class="testimonial-cards">
-            <div class="testimonial-card">
-                <p>"This service has revolutionized our support system! Highly recommend to anyone."</p>
-                <p><strong>- Alex H.</strong></p>
-            </div>
-            <div class="testimonial-card">
-                <p>"The analytics feature is top-notch! It has helped us improve our support performance significantly."</p>
-                <p><strong>- Jamie P.</strong></p>
+                <p>Always here to ensure smooth operations and satisfied customers.</p>
             </div>
         </div>
     </section>
@@ -238,8 +181,7 @@ body {
         <div class="footer-content">
             <div class="footer-links">
                 <a href="#features">Features</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#contact">Contact Us</a>
+                <a href="#contact">Contact</a>
             </div>
             <p>&copy; 2024 Your Service Name. All Rights Reserved.</p>
             <div class="social-links">
