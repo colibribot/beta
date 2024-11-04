@@ -1,196 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Service Name</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel Sidebar</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM32Y7ONJ4Z1ZZ7e0QFfbmucQjM/bOUoUX8Znp1" crossorigin="anonymous">
+<style>
+    /* Reset and basic styling */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #181818;
+        display: flex;
+        min-height: 100vh;
+    }
 
-  <style>
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    /* Sidebar styling */
+    .sidebar {
+        width: 260px;
+        background-color: #1c1c1e;
+        color: #ffffff;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        height: 100%;
+    }
+    
+    .sidebar .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #1a73e8;
+        margin-bottom: 30px;
+    }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #f0f0f0;
-    line-height: 1.6;
-}
+    /* Sidebar links and sections */
+    .sidebar .menu-item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        color: #c4c4c4;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+    }
 
-/* Hero Section */
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #1a73e8, #ff6347);
-    height: 100vh;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-}
+    .sidebar .menu-item i {
+        margin-right: 15px;
+    }
 
-.hero-content {
-    max-width: 700px;
-    animation: fadeIn 1s ease-out;
-}
+    .sidebar .menu-item:hover,
+    .sidebar .menu-item.active {
+        background-color: #333333;
+        color: #ffffff;
+    }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+    /* Collapsible section styling */
+    .sidebar .menu-section {
+        margin-top: 15px;
+        width: 100%;
+    }
 
-.cta-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    background: linear-gradient(135deg, #ff6347, #ff4500);
-    color: #fff;
-    border: none;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
+    .sidebar .section-title {
+        font-size: 14px;
+        color: #888888;
+        margin: 20px 0 10px 0;
+        text-transform: uppercase;
+    }
 
-.cta-button:hover {
-    transform: scale(1.05);
-}
+    /* Collapsible content */
+    .sidebar .submenu {
+        display: none;
+        flex-direction: column;
+        padding-left: 15px;
+    }
+    
+    .menu-item.dropdown-toggle::after {
+        content: "\f078"; /* Font Awesome down arrow icon */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        margin-left: auto;
+        transition: transform 0.3s ease;
+    }
 
-/* Features Section */
-.features {
-    padding: 50px 20px;
-    background-color: #181818;
-    text-align: center;
-}
+    .menu-item.active .dropdown-toggle::after {
+        transform: rotate(180deg);
+    }
 
-.features h2 {
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    color: #ff6347;
-}
+    .sidebar .submenu .submenu-item {
+        padding: 8px;
+        font-size: 14px;
+    }
 
-.feature-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.feature-card {
-    width: 300px;
-    padding: 20px;
-    background-color: #222;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-}
-
-.feature-card i {
-    font-size: 40px;
-    color: #ff6347;
-    margin-bottom: 10px;
-}
-
-.gradient-icon {
-    background: linear-gradient(135deg, #1a73e8, #ff6347);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Footer Section */
-.footer {
-    padding: 20px;
-    background-color: #111;
-    color: #888;
-    text-align: center;
-}
-
-.footer-links {
-    margin-bottom: 10px;
-}
-
-.footer-links a {
-    color: #ff6347;
-    margin: 0 15px;
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
-.social-links a {
-    color: #ff6347;
-    margin: 0 10px;
-    font-size: 1.5em;
-    transition: color 0.3s;
-}
-
-.social-links a:hover {
-    color: #ff4500;
-}
-
-  </style>
+    /* Footer promo styling */
+    .sidebar .promo {
+        margin-top: auto;
+        background-color: #ff5722;
+        color: #ffffff;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-size: 14px;
+        text-decoration: none;
+    }
+</style>
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Streamline Your Support</h1>
-            <p>Effortlessly manage and resolve issues with our advanced, intuitive support system.</p>
-            <a href="#features" class="cta-button">Get Started for Free</a>
-        </div>
-    </section>
+<div class="sidebar">
+    <!-- Logo Section -->
+    <div class="logo">Circuit Bot</div>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <h2>Features</h2>
-        <div class="feature-cards">
-            <div class="feature-card">
-                <i class="fas fa-ticket-alt gradient-icon"></i>
-                <h3>Ticketing System</h3>
-                <p>Organize and track issues with ease using our streamlined ticketing system.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-chart-line gradient-icon"></i>
-                <h3>Insights & Analytics</h3>
-                <p>Analyze your support data to make better decisions for your business.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-headset gradient-icon"></i>
-                <h3>24/7 Support</h3>
-                <p>Always here to ensure smooth operations and satisfied customers.</p>
-            </div>
-        </div>
-    </section>
+    <!-- Sidebar Links -->
+    <a href="#" class="menu-item active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <a href="#" class="menu-item"><i class="fas fa-plug"></i> View All Plugins</a>
+    <a href="#" class="menu-item"><i class="fas fa-crown"></i> Manage Premium</a>
+    <a href="#" class="menu-item"><i class="fas fa-robot"></i> Edit Commands</a>
+    <a href="#" class="menu-item"><i class="fas fa-chart-line"></i> Usage Logs</a>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#features">Features</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <p>&copy; 2024 Your Service Name. All Rights Reserved.</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+    <!-- Collapsible Section for Settings -->
+    <div class="menu-section">
+        <div class="section-title">Core Settings</div>
+        <a href="#" class="menu-item dropdown-toggle"><i class="fas fa-cog"></i> Settings</a>
+        <div class="submenu">
+            <a href="#" class="submenu-item">General</a>
+            <a href="#" class="submenu-item">Notifications</a>
+            <a href="#" class="submenu-item">Permissions</a>
         </div>
-    </footer>
+    </div>
+
+    <!-- Collapsible Section for Features -->
+    <div class="menu-section">
+        <div class="section-title">Feature Settings</div>
+        <a href="#" class="menu-item dropdown-toggle"><i class="fas fa-toolbox"></i> Custom Commands</a>
+        <div class="submenu">
+            <a href="#" class="submenu-item">Create Command</a>
+            <a href="#" class="submenu-item">Manage Commands</a>
+        </div>
+
+        <a href="#" class="menu-item dropdown-toggle"><i class="fas fa-user-shield"></i> Moderation</a>
+        <div class="submenu">
+            <a href="#" class="submenu-item">Ban List</a>
+            <a href="#" class="submenu-item">Infractions</a>
+        </div>
+
+        <a href="#" class="menu-item dropdown-toggle"><i class="fas fa-scroll"></i> Logging</a>
+        <div class="submenu">
+            <a href="#" class="submenu-item">Message Logs</a>
+            <a href="#" class="submenu-item">Audit Logs</a>
+        </div>
+    </div>
+
+    <!-- Footer Promo Button -->
+    <a href="#" class="promo">Support Circuit on Top.gg</a>
+</div>
+
+<script>
+    // Toggle submenu visibility
+    document.querySelectorAll('.dropdown-toggle').forEach(item => {
+        item.addEventListener('click', function() {
+            const submenu = this.nextElementSibling;
+            submenu.style.display = submenu.style.display === 'flex' ? 'none' : 'flex';
+            this.classList.toggle('active');
+        });
+    });
+</script>
 
 </body>
 </html>
