@@ -1,185 +1,187 @@
 <!-- footer.html -->
 
-<style>
-    .footer {
-        background-color: #141414;
-        color: #fff;
-        padding: 50px 0;
-        font-family: 'Arial', sans-serif;
-    }
-    
-    .footer-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* Four columns on larger screens */
-        gap: 30px;
-        margin-bottom: 30px;
-    }
-    
-    .footer-column {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .footer-column h4 {
-        font-size: 18px;
-        font-weight: bold;
-        color: #e6e5e5;
-        margin-bottom: 10px;
-    }
-    
-    .footer-column ul {
-        list-style: none;
-        padding: 0;
-    }
-    
-    .footer-column ul li {
-        margin-bottom: 10px;
-    }
-    
-    .footer-column ul li a {
-        color: #bdbdbd;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-    
-    .footer-column ul li a:hover {
-        color: #fff;
-    }
-    
-    .social-links a {
-        font-size: 24px;
-        margin-right: 15px;
-        color: #bdbdbd;
-        transition: color 0.3s;
-    }
-    
-    .social-links a:hover {
-        color: #fff;
-    }
-    
-    .footer-bottom {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 1px solid #2c2c2c;
-        padding-top: 20px;
-        font-size: 14px;
-        color: #bdbdbd;
-    }
-    
-    .legal-links a {
-        margin-left: 15px;
-        color: #bdbdbd;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-    
-    .legal-links a:hover {
-        color: #fff;
-    }
-    
-    .footerIcon img {
-        height: 35px;
-        width: 35px;
-        float: left;
-    }
-    
-    .footerIcon h4 {
-        margin: 0;
-        font-size: 25px;
-    }
-        
-    .footerIcon p {
-        color: #666;
-        line-height: 1.6;
-    }
-    
-    .footer-bottom p {
-        color: #666;
-        line-height: 1.6;
-    }
-        
-    .footerIcon {
-        float: left;
-    }
-    
-    /* Add media queries for responsiveness */
-    @media (max-width: 768px) {
-        .footer-grid {
-            grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .footer-grid {
-            grid-template-columns: 1fr; /* One column on small screens */
-            text-align: center;
-        }
-    
-        .footer-bottom {
-            flex-direction: column;
-            text-align: center;
-        }
-    
-        .footer-bottom p {
-            margin-bottom: 10px;
-        }
-    
-        .footerIcon {
-            display: block;
-            text-align: center;
-        }
-    
-        .footerIcon img, .footerIcon h4 {
-            display: block;
-            margin: 0 auto;
-        }
-    }
-    </style>
 
+<style>
+/* Footer Container */
+.circuit-footer {
+  background-color: #141414;
+  color: #c9d1d9;
+  font-family: 'Arial', sans-serif;
+  padding: 40px 20px;
+  border-top: 1px solid #30363d;
+}
+
+.circuit-footer-container {
+  max-width: 1170px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* Description Section */
+.circuit-footer-description {
+  flex: 1 1 300px;
+  min-width: 300px;
+}
+
+.circuit-footer-title {
+  margin: 0;
+  font-size: 24px;
+  color: #e6e5e5;
+}
+
+.circuit-footer-text {
+  margin: 15px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Links Section */
+.circuit-footer-links {
+  display: flex;
+  gap: 40px;
+}
+
+.circuit-footer-links-column {
+  flex: 0 0 auto;
+  min-width: 150px;
+}
+
+.circuit-footer-links-title {
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #c9d1d9;
+}
+
+.circuit-footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.circuit-footer-link {
+  text-decoration: none;
+  color: #bdbdbd;
+  transition: color 0.3s ease;
+}
+
+.circuit-footer-link:hover {
+  color: #fff;
+}
+
+/* Bottom Section */
+.circuit-footer-bottom {
+  max-width: 1170px;
+  margin: 40px auto 0;
+  border-top: 1px solid #30363d;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.circuit-footer-bottom-text {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.circuit-footer-status {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Buttons */
+.circuit-footer-button {
+  font-size: 14px;
+  padding: 8px 12px;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.circuit-footer-button:hover {
+  background-color: #30363d;
+  border-color: #58a6ff;
+}
+
+/* Status Indicator */
+.status-indicator-dot {
+  background-color: #2ea043;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+}
+
+    </style>
     <body>
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <div class="footerIcon">
-                        <h4>Circuit</h4><p class="footerIcon p">The all-in-one solution for effortlessly managing your server.</p>
-                    </div>       
+<footer class="circuit-footer">
+            <div class="circuit-footer-container">
+              <!-- Main description section -->
+              <div class="circuit-footer-description">
+                <h3 class="circuit-footer-title">Circuit</h3>
+                <p class="circuit-footer-text">
+                  Circuit simplifies managing your online communities with advanced tools for monitoring, collaboration, and
+                  growth. Stay connected and in control with Circuit.
+                </p>
+              </div>
+          
+              <!-- Links section -->
+              <div class="circuit-footer-links">
+                <!-- Links column: Resources -->
+                <div class="circuit-footer-links-column">
+                  <h4 class="circuit-footer-links-title">Resources</h4>
+                  <ul class="circuit-footer-links-list">
+                    <li><a href="#" class="circuit-footer-link">Help Center</a></li>
+                    <li><a href="#" class="circuit-footer-link">Community</a></li>
+                    <li><a href="#" class="circuit-footer-link">API Documentation</a></li>
+                    <li><a href="#" class="circuit-footer-link">System Status</a></li>
+                  </ul>
                 </div>
-                <div class="footer-column">
-                    <h4></h4>
-                    <ul>
-                        
-                        
-                        
-                        
-                    </ul>
+                <!-- Links column: Legal -->
+                <div class="circuit-footer-links-column">
+                  <h4 class="circuit-footer-links-title">Legal</h4>
+                  <ul class="circuit-footer-links-list">
+                    <li><a href="#" class="circuit-footer-link">Terms of Service</a></li>
+                    <li><a href="#" class="circuit-footer-link">Privacy Policy</a></li>
+                    <li><a href="#" class="circuit-footer-link">Refund Policy</a></li>
+                  </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="/help/docs">Documentation</a></li>
-                        <li><a href="/bot/discord">Community</a></li>
-                        <li><a href="/bot/invite">Invite Circuit</a></li>
-                        <li><a href="/bot/status">Status</a></li></ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Circuit</h4>
-                    <ul>
-                        <li><a href="/bot/premium">Premium</a></li>
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="about/careers">Careers</a></li>
-                        <li><a href="help/contact">Contact</a></li>
-                    </ul>
-                </div>   
+              </div>
             </div>
-            <div class="footer-bottom">
-                <p>© 2024 Circuit. All rights reserved.</p>
-                <div class="legal-links">
-                    <a href="/legal/privacy">Privacy Policy</a>
-                    <a href="/legal/terms">Terms of Service</a>
-                </div>
+          
+            <!-- Bottom section -->
+            <div class="circuit-footer-bottom">
+              <div class="circuit-footer-bottom-text">© 2024 Circuit. All rights reserved.</div>
+              <div class="circuit-footer-status">
+                <!-- Version Button with Tooltip -->
+                <button class="circuit-footer-button circuit-footer-version-button">
+                  v1.0.0
+                </button>
+                <!-- Status Link Button -->
+                <a href="/status" class="circuit-footer-button circuit-footer-status-button">
+                  <span>Status:</span>
+                  <span class="status-indicator-dot"></span>
+                  <span>Online</span>
+                </a>
+              </div>
             </div>
-        </div>
-    </footer>
+          </footer>
 </body>
