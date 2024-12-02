@@ -302,6 +302,23 @@ var newServersChart = new Chart(ctx, {
 });
 </script>
 
+        <script>
+        // Parse the token from the URL
+        const queryParams = new URLSearchParams(window.location.search);
+        const token = queryParams.get('token');
+
+        // If token exists, store it in localStorage
+        if (token) {
+            localStorage.setItem('discord_access_token', token);
+            console.log('Access token saved to localStorage:', token);
+
+            // Optionally, clear the token from the URL for cleanliness
+            window.history.replaceState({}, document.title, window.location.pathname);
+        } else {
+            console.error('No token found in the URL');
+        }
+    </script>
+
 
 </body>
 </html>
